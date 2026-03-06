@@ -1,0 +1,3 @@
+C:/code/ousmania_from_temu/build/CMakeFiles/Shitmania.dir
+C:/code/ousmania_from_temu/build/CMakeFiles/edit_cache.dir
+C:/code/ousmania_from_temu/build/CMakeFiles/rebuild_cache.dir
