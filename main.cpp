@@ -53,9 +53,18 @@ int countHeld(vector<sf::Keyboard::Key> vec)
 
 int main()
 {
-    const int HEALTH = 100;
+    int HEALTH;
+    cout << "Enter your desired max HP" << endl;
+    cin >> HEALTH;
+
+    int damage;
+    cout << "Enter your desired damage" << endl;
+    cin >> damage;
+
+    int speed;
+    cout << "Enter your desired speed (about 1000 is recomended)(<=0 is gonna be boring)" << endl;
+    cin >> speed;
     int hp = HEALTH;
-    bool invul = false;
 
     sf::RectangleShape hpBar({HEALTH, 30.f});
     hpBar.setFillColor(sf::Color::Red);
@@ -94,11 +103,11 @@ int main()
 
                         if (chekCollisonWithTarget(targets, askl[i]))
                         {
-                            hp = clamp(HEALTH, 0, hp + 10);
+                            hp = clamp(HEALTH, 0, hp + damage);
                         }
                         else
                         {
-                            hp -= 10;
+                            hp -= damage;
                         }
                     }
                 }
@@ -121,10 +130,10 @@ int main()
         hpBar.setSize({hp * 1.f, 30.f});
         for (auto &target : targets)
         {
-            target.move(sf::Vector2f(0.f, 1000.f) * dt);
+            target.move(sf::Vector2f(0.f, speed) * dt);
         }
         if (chekCollisonWithTarget(targets, killZone))
-            hp -= 5;
+            hp -= damage;
 
         window.clear();
         for (auto i : targets)
